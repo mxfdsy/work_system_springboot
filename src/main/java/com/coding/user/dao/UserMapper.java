@@ -1,6 +1,9 @@
 package com.coding.user.dao;
 
 import com.coding.user.entity.User;
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
 public interface UserMapper {
     int deleteByPrimaryKey(Long id);
 
