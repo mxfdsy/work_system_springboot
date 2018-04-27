@@ -23,13 +23,7 @@ public class UserController {
 
     @RequestMapping("/user")
     public String user(){
-        logger.info("hello");
-        User user = new User();
-        user.setUsername("333");
-        user.setPassword("cww123456");
-        user.setMobile("15058547187");
-        user.setRealName("程武武");
-        userService.createUser(user);
+
         return "user";
     }
 }
