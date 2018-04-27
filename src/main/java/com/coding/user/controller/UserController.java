@@ -20,7 +20,6 @@ public class UserController {
     @RequestMapping("/user")
     public String user(){
         User user = new User();
-        user.setId((long) 1);
         user.setPassword("cww123456");
         user.setMobile("15058547187");
         user.setRealName("程武武");
