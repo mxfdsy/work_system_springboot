@@ -56,7 +56,7 @@
       <if test="id != null" >
         #{id,jdbcType=BIGINT},
       </if>
-      <if test="username != null" >
+      <if test="username != null" >**
         #{username,jdbcType=VARCHAR},
       </if>
       <if test="password != null" >

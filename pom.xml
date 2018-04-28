@@ -246,7 +246,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-
 			<plugin>
 				<groupId>org.mybatis.generator</groupId>
 				<artifactId>mybatis-generator-maven-plugin</artifactId>
@@ -257,14 +256,5 @@
 				</configuration>
 			</plugin>
 		</plugins>
-
-		<resources>
-			<!--<resource>-->
-				<!--<directory>src/main/java</directory>-->
-				<!--<includes>-->
-					<!--<include>**/*.xml</include>-->
-				<!--</includes>-->
-			<!--</resource>-->
-		</resources>
 	</build>
 </project>

@@ -23,7 +23,8 @@ public class UserController {
 
     @RequestMapping("/user")
     public String user(){
-
+        User user = new User();
+        userService.createUser(user);
         return "user";
     }
 }
