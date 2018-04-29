@@ -34,9 +34,9 @@
     <div class="login-box-body">
         <p class="login-box-msg">让我们开始吧！</p>
 
-        <form action="../../index2.html" method="post">
+
             <div class="form-group has-feedback">
-                <input id="user" type="email" class="form-control" placeholder="用户名">
+                <input id="user" type="username" class="form-control" placeholder="用户名">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 <span id="user_alert" style="color: red;visibility: hidden">请输入账号</span>
             </div>
@@ -59,7 +59,7 @@
                 </div>
                 <!-- /.col -->
             </div>
-        </form>
+
         <a href="#">忘记密码？</a><br>
         <a href="register.html" class="text-center">立即注册</a>
 
@@ -79,11 +79,29 @@
         $("#submitid").click(function () {
             var user = $("#user").val();
             var pwd  = $("#pwd").val();
+            var veryfiy = true;
             if (user.length == 0) {
                 $("#user_alert").css("visibility","visible");
+                veryfiy =false;
+            }else{
+                $("#user_alert").css("visibility","hidden");
             }
             if (pwd.length == 0) {
                 $("#pwd_alert").css("visibility","visible");
+                veryfiy =false;
+            }else{
+                $("#user_alert").css("visibility","hidden");
+            }
+            if (veryfiy) {
+                //ajax提交表单
+                $.ajax({
+                   type:"POST",
+                    url:"/login/check",
+                    data:{"username":user,"password":pwd},
+                    sucess:function (data) {
+                        alert("data");
+                    }
+                });
             }
         });
     });
