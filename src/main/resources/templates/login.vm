@@ -98,8 +98,8 @@
                    type:"POST",
                     url:"/login/check",
                     data:{"username":user,"password":pwd},
-                    sucess:function (data) {
-                        alert("data");
+                    sucess:function (sucess) {
+                       alert(sucess);
                     }
                 });
             }

@@ -29,7 +29,7 @@ public class LoginController {
         //用户存session
         //进入首页
         //失败 提示
-        return "sucess";
+        return "login_succ";
     }
 }
 
