@@ -15,8 +15,6 @@
     <link rel="stylesheet" href="css/ionicons.min.css" type="text/css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css" type="text/css">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="static/plugins/iCheck/square/blue.css" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -33,8 +31,6 @@
     <!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">让我们开始吧！</p>
-
-
             <div class="form-group has-feedback">
                 <input id="user" type="username" class="form-control" placeholder="用户名">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -82,24 +78,19 @@
             var veryfiy = true;
             if (user.length == 0) {
                 $("#user_alert").css("visibility","visible");
-                veryfiy =false;
-            }else{
-                $("#user_alert").css("visibility","hidden");
+                veryfiy = false;
             }
             if (pwd.length == 0) {
                 $("#pwd_alert").css("visibility","visible");
-                veryfiy =false;
-            }else{
-                $("#user_alert").css("visibility","hidden");
+                veryfiy = false;
             }
             if (veryfiy) {
-                //ajax提交表单
                 $.ajax({
-                   type:"POST",
+                    type:"POST",
                     url:"/login/check",
-                    data:{"username":user,"password":pwd},
-                    sucess:function (sucess) {
-                       alert(sucess);
+                    data:{"username": user,"password":pwd},
+                    sucess:function (data) {
+                        alert(data);
                     }
                 });
             }

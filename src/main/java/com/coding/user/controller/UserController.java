@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+
 /**
  * Created by 平凡的世界 on 2018/4/25.
  */
@@ -22,8 +25,12 @@ public class UserController {
     private static Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @RequestMapping("/user")
-    public String user(){
+    public String user() throws UnsupportedEncodingException, NoSuchAlgorithmException {
         User user = new User();
+        user.setUsername("001");
+        user.setPassword("cww123456");
+        user.setRealName("cww");
+        user.setMobile("123344");
         userService.createUser(user);
         return "user";
     }
