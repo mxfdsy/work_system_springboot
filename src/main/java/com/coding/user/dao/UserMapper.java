@@ -1,7 +1,9 @@
 package com.coding.user.dao;
 
 import com.coding.user.entity.User;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface UserMapper {
     int deleteByPrimaryKey(Long id);
 
@@ -14,4 +16,10 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    /**
+     * 根据用户名查询用户
+     * @return
+     */
+    User selectByUserName(String  name);
 }

@@ -1,14 +1,20 @@
 package com.coding.user.service;
 
+import com.coding.login.controller.commons.utils.SecurityUtils;
 import com.coding.user.dao.UserMapper;
 import com.coding.user.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+
 
 /**
- * Created by 平凡的世界 on 2018/4/26.
+ * @author  没想法的岁月
+ *  @Date $date $time
+ * @description
  */
 
 @Service("UserServiceImpl")
@@ -21,7 +27,31 @@ public class UserServiceImpl  implements UserService{
     @Autowired
     private UserMapper userMapper;
 
-    public int createUser(User user) {
+    @Override
+    public int createUser(User user) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         return userMapper.insertSelective(user);
+    }
+
+    /**
+     * @author  没想法的岁月
+     * @Date 2018/5/1 9:31
+     * @Description 根据用户名来查询用户
+     */
+    @Override
+    public User findUserByUserName(String name) {
+        User user =userMapper.selectByUserName(name);
+        return user;
+    }
+
+    /**
+     * @author  没想法的岁月
+     * @Date 2018/5/1 12:18
+     * @Description 注册新用户
+     */
+
+    @Override
+    public void nLoginUser(User user) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        user.setPassword(SecurityUtils.encrtyPassword(user.getPassword()));
+        userMapper.insertSelective(user);
     }
 }
