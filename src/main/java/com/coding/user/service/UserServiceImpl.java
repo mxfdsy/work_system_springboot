@@ -50,7 +50,7 @@ public class UserServiceImpl  implements UserService{
      */
 
     @Override
-    public void nLoginUser(User user) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+    public void NLoginUser(User user) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         user.setPassword(SecurityUtils.encrtyPassword(user.getPassword()));
         userMapper.insertSelective(user);
     }

@@ -12,7 +12,7 @@ import java.security.NoSuchAlgorithmException;
  */
 public class SecurityUtils {
     public  static  String encrtyPassword(String password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-        MessageDigest md5 = MessageDigest.getInstance("MD5)");
+        MessageDigest md5 = MessageDigest.getInstance("MD5");
         BASE64Encoder base64Encoder = new BASE64Encoder();
         String result = base64Encoder.encode(md5.digest(password.getBytes("utf-8")));
         return result;

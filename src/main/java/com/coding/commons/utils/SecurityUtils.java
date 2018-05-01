@@ -1,4 +1,4 @@
-package com.coding.common.utils;
+package com.coding.commons.utils;
 
 import sun.misc.BASE64Encoder;
 
@@ -18,7 +18,7 @@ public class SecurityUtils {
      * @throws NoSuchAlgorithmException 没有这样的加密算法
      * @throws UnsupportedEncodingException 解码异常
      */
-    public String encrptyPassword(String password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+    public static String encrptyPassword(String password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
         //获取使用哪种算法加密
         MessageDigest md5 = MessageDigest.getInstance("MD5");
         //BASE64Encoder 防止存进数据库的是乱码
@@ -36,7 +36,7 @@ public class SecurityUtils {
      * @throws UnsupportedEncodingException
      * @throws NoSuchAlgorithmException
      */
-    public boolean cheackPassword(String inputPwd, String dbPwd) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+    public static boolean cheackPassword(String inputPwd, String dbPwd) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         String result = encrptyPassword(inputPwd);
         if (result.equals(dbPwd)) {
             return true;

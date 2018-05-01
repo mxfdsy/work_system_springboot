@@ -1,5 +1,6 @@
 package com.coding.login.controller;
 
+import com.coding.common.utils.utils.SecurityUtils;
 import com.coding.user.entity.User;
 import com.coding.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,16 +39,25 @@ public class LoginController {
      */
     @RequestMapping("/check")
     @ResponseBody
-    public String checkLogin(HttpServletRequest httpServletRequest) {
+    public String checkLogin(HttpServletRequest httpServletRequest) throws UnsupportedEncodingException, NoSuchAlgorithmException {
 
         String username = httpServletRequest.getParameter("username");
         String password = httpServletRequest.getParameter("password");
 
         //查询数据库 如果查询到数据  调用md5校验密码
         User user = userService.findUserByUserName(username);
-        //如果成功(存session 进入首页) 失败 提示失败
-        //
-        return "login_succc";
+        if (user != null) {
+            if (SecurityUtils.cheackPassword(password, user.getPassword())) {
+                //校验成功设置session
+                httpServletRequest.setAttribute("userinfo",user);
+                return "login_succ";
+            } else {
+                //校验失败，返回登录页面
+                return "login_fail";
+            }
+        } else {
+            return "login_fail";
+        }
     }
 
     /**
@@ -58,9 +68,8 @@ public class LoginController {
     @RequestMapping("/register")
     @ResponseBody
     public String register(@RequestBody User user) throws UnsupportedEncodingException, NoSuchAlgorithmException {
-        userService.nLoginUser(user);
+        userService.NLoginUser(user);
         return "succ";
     }
-
 }
 

@@ -14,5 +14,5 @@ public interface UserService {
 
     User findUserByUserName(String name);
 
-    void nLoginUser(User user) throws UnsupportedEncodingException, NoSuchAlgorithmException;
+    void NLoginUser(User user) throws UnsupportedEncodingException, NoSuchAlgorithmException;
 }
