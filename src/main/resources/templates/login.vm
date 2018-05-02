@@ -89,7 +89,12 @@
                     type:"POST",
                     url:"/login/check",
                     data:{"username": user,"password":pwd},
-                    sucess:function (data) {
+                    success:function (data) {
+                        console.log(data);
+                        alert(data);
+                    },
+                    error:function(data){
+                        console.log(data);
                         alert(data);
                     }
                 });

@@ -9,8 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Created by 平凡的世界 on 2018/5/1.
+ * @author  没想法的岁月
+ * @Date 2018/5/2 10:02
+ * @Description Session 拦截器
  */
+
 public class SessionInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -19,7 +22,12 @@ public class SessionInterceptor implements HandlerInterceptor {
             return true;
         }
         HttpSession session = request.getSession();
-        User useriunfo = (User)session.getAttribute("useriunfo");
+        User user = (User)session.getAttribute("useriunfo");
+        if (user != null) {
+            return true;
+        }
+        //跳转到的登录页面
+        request.getRequestDispatcher("/login").forward(request,response);
         return false;
     }
 

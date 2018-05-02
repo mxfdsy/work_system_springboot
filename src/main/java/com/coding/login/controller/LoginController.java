@@ -1,6 +1,6 @@
 package com.coding.login.controller;
 
-import com.coding.common.utils.utils.SecurityUtils;
+import com.coding.commons.utils.SecurityUtils;
 import com.coding.user.entity.User;
 import com.coding.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,7 +59,6 @@ public class LoginController {
             return "login_fail";
         }
     }
-
     /**
      * @author 没想法的岁月
      * @Date 2018/5/1 9:45

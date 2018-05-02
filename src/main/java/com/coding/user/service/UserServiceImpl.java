@@ -1,6 +1,6 @@
 package com.coding.user.service;
 
-import com.coding.login.controller.commons.utils.SecurityUtils;
+import com.coding.commons.utils.SecurityUtils;
 import com.coding.user.dao.UserMapper;
 import com.coding.user.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,7 +51,7 @@ public class UserServiceImpl  implements UserService{
 
     @Override
     public void NLoginUser(User user) throws UnsupportedEncodingException, NoSuchAlgorithmException {
-        user.setPassword(SecurityUtils.encrtyPassword(user.getPassword()));
+        user.setPassword(SecurityUtils.encrptyPassword(user.getPassword()));
         userMapper.insertSelective(user);
     }
 }

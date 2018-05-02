@@ -24,14 +24,9 @@ public class UserController {
 
     private static Logger logger = LoggerFactory.getLogger(UserController.class);
 
-    @RequestMapping("/user")
+    @RequestMapping("/home")
     public String user() throws UnsupportedEncodingException, NoSuchAlgorithmException {
-        User user = new User();
-        user.setUsername("001");
-        user.setPassword("cww123456");
-        user.setRealName("cww");
-        user.setMobile("123344");
-        userService.createUser(user);
-        return "user";
+
+        return "home";
     }
 }
