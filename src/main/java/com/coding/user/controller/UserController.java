@@ -6,8 +6,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 
@@ -29,4 +32,16 @@ public class UserController {
 
         return "home";
     }
+    /**
+     * @author  没想法的岁月
+     * @Date 2018/5/3 17:20
+     * @Description 获取用户信息
+     */
+    @RequestMapping("/userinfo")
+    @ResponseBody
+    public  User getUser(HttpSession session){
+        User user = (User)session.getAttribute("userinfo");
+        return user;
+    }
+
 }

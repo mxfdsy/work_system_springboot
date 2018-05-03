@@ -90,12 +90,11 @@
                     url:"/login/check",
                     data:{"username": user,"password":pwd},
                     success:function (data) {
-                        console.log(data);
-                        alert(data);
-                    },
-                    error:function(data){
-                        console.log(data);
-                        alert(data);
+                        if(data=="login_succ"){
+                            window.location.href="/cww/home";
+                        }else{
+                            $("#login_error").css("visibility","visible");
+                        }
                     }
                 });
             }

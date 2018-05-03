@@ -49,7 +49,7 @@ public class LoginController {
         if (user != null) {
             if (SecurityUtils.cheackPassword(password, user.getPassword())) {
                 //校验成功设置session
-                httpServletRequest.setAttribute("userinfo",user);
+                httpServletRequest.getSession().setAttribute("userinfo",user);
                 return "login_succ";
             } else {
                 //校验失败，返回登录页面
