@@ -200,10 +200,10 @@
 <script th:src="@{/js/user.js}"></script>
 <script th:src="@{/plugins/datatables/jquery.dataTables.min.js}"></script>
 <script th:src="@{/plugins/datatables/dataTables.bootstrap.min.js}"></script>
-<script th:src="@{/plugins/datepicker/bootstrap-datepicker.js"}></script>
-<script th:src="@{/plugins/daterangepicker/moment.min.js"}></script>
-<script th:src="@{/plugins/daterangepicker/daterangepicker.js"}></script>
-<script th:src="@{/plugins/datepicker/locales/bootstrap-datepicker.zh-CN.js"}></script>
+<script th:src="@{/plugins/datepicker/bootstrap-datepicker.js}"></script>
+<script th:src="@{/plugins/daterangepicker/moment.min.js}"></script>
+<script th:src="@{/plugins/daterangepicker/daterangepicker.js}"></script>
+<script th:src="@{/plugins/datepicker/locales/bootstrap-datepicker.zh-CN.js}"></script>
 <script>
     //Date range as a button
     $('#rangeDate').daterangepicker(
