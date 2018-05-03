@@ -13,7 +13,7 @@
 @font-face {
     font-family: "Ionicons";
     src: url("/static/css/ionicons.eot?v=2.0.0");
-    src: url("/static/css/ionicons.eot?v=2.0.0#iefix") format("embedded-opentype"), url("/static/css/ionicons.ttf?v=2.0.0") format("truetype"), url("/static/css/ionicons.woff?v=2.0.0") format("woff"), url("/static/css/ionicons.svg?v=2.0.0#Ionicons") format("svg");
+    src: url("/static/css/ionicons.eot?v=2.0.0#iefix") format("embedded-opentype"), url("../fonts/ionicons.ttf?v=2.0.0") format("truetype"), url("../fonts/ionicons.woff?v=2.0.0") format("woff"), url("/static/css/ionicons.svg?v=2.0.0#Ionicons") format("svg");
     font-weight: normal;
     font-style: normal
 }
