@@ -17,6 +17,7 @@ import java.util.List;
 public class LoginWebMvcConfigurerAdapter extends WebMvcConfigurerAdapter {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+
         //静态资源拦截 不会写
 //      registry.addInterceptor(new SessionInterceptor()).addPathPatterns("/static/jquery/**.js","/static/**");
     }
