@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -42,6 +41,16 @@ public class UserController {
     public  User getUser(HttpSession session){
         User user = (User)session.getAttribute("userinfo");
         return user;
+    }
+    /**
+     * @author  没想法的岁月
+     * @Date 2018/5/3 17:20
+     * @Description session过期用户退出登录
+     */
+    @RequestMapping("/logout")
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "login";
     }
 
 }

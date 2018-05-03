@@ -1,7 +1,7 @@
 $(function(){
     $.ajax({
         type:"POST",
-        url:"/user/userinfo",
+        url:"/cww/userinfo",
         dataType:"json",
         contentType:"application/json",
         data:{},

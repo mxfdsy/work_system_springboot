@@ -73,7 +73,7 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-right">
-                                    <a href="/user/logout" class="btn btn-default btn-flat">退出系统</a>
+                                    <a href="/cww/logout" class="btn btn-default btn-flat">退出系统</a>
                                 </div>
                             </li>
                         </ul>
