@@ -88,6 +88,7 @@
                 $.ajax({
                     type:"POST",
                     url:"/login/check",
+                    dataType:"json",
                     data:{"username": user,"password":pwd},
                     success:function (data) {
                         if(data=="login_succ"){
