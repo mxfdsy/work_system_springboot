@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  */
 @Service("AttendServicImp")
 public class AttendServicImp implements AttendService {
-
+    //日志的使用
     private Log log = LogFactory.getLog(AttendServicImp.class);
 
     @Autowired
