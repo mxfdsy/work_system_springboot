@@ -52,82 +52,18 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
-		<!--spring-core 核心包-->
-		<!--<dependency>-->
-			<!--<groupId>org.springframework</groupId>-->
-			<!--<artifactId>spring-core</artifactId>-->
-			<!--<version>${spring-version}</version>-->
-		<!--</dependency>-->
-		<!--spring-context 上下文支持包-->
-		<!--<dependency>-->
-			<!--<groupId>org.springframework</groupId>-->
-			<!--<artifactId>spring-context</artifactId>-->
-			<!--<version>${spring-version}</version>-->
-		<!--</dependency>-->
-		<!--事物管理-spring-tx-->
-		<!--<dependency>-->
-			<!--<groupId>org.springframework</groupId>-->
-			<!--<artifactId>spring-tx</artifactId>-->
-			<!--<version>${spring-version}</version>-->
-		<!--</dependency>-->
 
-		<!--spring-jdbc-->
-		<!--<dependency>-->
-			<!--<groupId>org.springframework</groupId>-->
-			<!--<artifactId>spring-jdbc</artifactId>-->
-			<!--<version>${spring-version}</version>-->
-		<!--</dependency>-->
+		<!--事物支持-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+		</dependency>
 
-		<!--单元测试-->
-		<!--<dependency>-->
-			<!--<groupId>org.springframework</groupId>-->
-			<!--<artifactId>spring-test</artifactId>-->
-			<!--<version>${spring-version}</version>-->
-		<!--</dependency>-->
-
-		<!--spring-web-->
-		<!--<dependency>-->
-			<!--<groupId>org.springframework</groupId>-->
-			<!--<artifactId>spring-web</artifactId>-->
-			<!--<version>${spring-version}</version>-->
-		<!--</dependency>-->
-
-		<!--<dependency>-->
-			<!--<groupId>org.springframework</groupId>-->
-			<!--<artifactId>spring-webmvc</artifactId>-->
-			<!--<version>${spring-version}</version>-->
-		<!--</dependency>-->
-		<!--切面编程-->
-		<!--<dependency>-->
-			<!--<groupId>org.springframework</groupId>-->
-			<!--<artifactId>spring-aop</artifactId>-->
-			<!--<version>${spring-version}</version>-->
-		<!--</dependency>-->
-
-		<!--<dependency>-->
-			<!--<groupId>org.springframework</groupId>-->
-			<!--<artifactId>spring-context-support</artifactId>-->
-			<!--<version>${spring-version}</version>-->
-		<!--</dependency>-->
-
-		<!--<dependency>-->
-			<!--<groupId>org.aspectj</groupId>-->
-			<!--<artifactId>aspectjweaver</artifactId>-->
-			<!--<version>1.8.5</version>-->
-		<!--</dependency>-->
-		<!--mybatis 与spring 的核心包-->
-		<!--<dependency>-->
-			<!--<groupId>org.mybatis</groupId>-->
-			<!--<artifactId>mybatis</artifactId>-->
-			<!--<version>${mybatis.version}</version>-->
-		<!--</dependency>-->
-
-		<!--<dependency>-->
-			<!--<groupId>org.mybatis</groupId>-->
-			<!--<artifactId>mybatis-spring</artifactId>-->
-			<!--<version>1.2.2</version>-->
-		<!--</dependency>-->
-
+		<!--generator-->
 		<dependency>
 			<groupId>org.mybatis.generator</groupId>
 			<artifactId>mybatis-generator-maven-plugin</artifactId>
@@ -238,10 +174,18 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
+		<!--阿里巴巴fsstjson-->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 			<version>1.2.15</version>
+		</dependency>
+
+		<!-- quartz -->
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>2.2.2</version>
 		</dependency>
 	</dependencies>
 

@@ -9,6 +9,30 @@ public class QueryCondition extends PageQueryBean {
 
     private Long userId;
 
+    private String startDate;
+
+    private String endDate;
+
+    private Byte attendStatus;
+
+    private String rangeDate;
+
+    public Byte getAttendStatus() {
+        return attendStatus;
+    }
+
+    public void setAttendStatus(Byte attendStatus) {
+        this.attendStatus = attendStatus;
+    }
+
+    public String getRangeDate() {
+        return rangeDate;
+    }
+
+    public void setRangeDate(String rangeDate) {
+        this.rangeDate = rangeDate;
+    }
+
     public Long getUserId() {
         return userId;
     }
@@ -16,10 +40,6 @@ public class QueryCondition extends PageQueryBean {
     public void setUserId(Long userId) {
         this.userId = userId;
     }
-
-    private String startDate;
-
-    private String endDate;
 
     public String getStartDate() {
         return startDate;
