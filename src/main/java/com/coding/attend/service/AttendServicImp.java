@@ -8,6 +8,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -29,6 +30,11 @@ public class AttendServicImp implements AttendService {
     private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     @Autowired
     private AttendMapper attendMapper;
+
+    /**
+     * 记录打卡
+     * @param attend
+     */
     @Override
     public void signAttend(Attend attend) {
         try {
@@ -87,5 +93,19 @@ public class AttendServicImp implements AttendService {
             pageresult.setItems(attendList);
         }
         return pageresult;
+    }
+
+    /**
+     * 通过记录的数据，检测缺勤情况
+     */
+    @Override
+    @Transactional
+    public void checkAttend() {
+        //查询今天都没打卡人数的
+
+        //只有早打卡的人或者晚打卡的人
+
+        //早晚打卡时间不足8小时
+        
     }
 }
