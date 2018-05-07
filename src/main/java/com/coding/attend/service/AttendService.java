@@ -12,5 +12,5 @@ public interface AttendService {
 
     PageQueryBean listAttend(QueryCondition condition);
 
-    void checkAttend();
+    void checkAttend(Attend attend);
 }

@@ -1,19 +1,25 @@
 package com.coding.attend.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
 import java.util.Date;
+
 
 public class Attend implements Serializable {
     private Long id;
 
     private Long userId;
 
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date attendDate;
 
     private Byte attendWeek;
 
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date attendMoring;
 
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date attendEvening;
 
     private Integer absence;

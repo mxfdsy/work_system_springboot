@@ -1,5 +1,6 @@
 package com.coding.login.controller;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.coding.commons.utils.SecurityUtils;
 import com.coding.user.entity.User;
 import com.coding.user.service.UserService;

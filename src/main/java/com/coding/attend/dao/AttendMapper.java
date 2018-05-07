@@ -23,4 +23,6 @@ public interface AttendMapper {
     int countByCondition(QueryCondition condition);
 
     List<Attend> selsectAttendPage(QueryCondition condition);
+
+    Attend selectAbsenceTotalDay(Attend attend);
 }

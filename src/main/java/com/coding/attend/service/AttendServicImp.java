@@ -4,6 +4,7 @@ import com.coding.attend.dao.AttendMapper;
 import com.coding.attend.entity.Attend;
 import com.coding.attend.vo.QueryCondition;
 import com.coding.commons.page.PageQueryBean;
+import com.coding.commons.utils.DateUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,12 @@ public class AttendServicImp implements AttendService {
      * 设置中午12点
      */
     private static final int NOON_TIME = 12;
-    private static final int NOON_MUNITE =00 ;
+    private static final int NOON_MUNITE = 00;
+
+    /**
+     * 8小时的分钟数
+     */
+    private static final int INTERVAL = 480;
     //日志的使用
     private Log log = LogFactory.getLog(AttendServicImp.class);
 
@@ -33,6 +39,7 @@ public class AttendServicImp implements AttendService {
 
     /**
      * 记录打卡
+     *
      * @param attend
      */
     @Override
@@ -58,7 +65,7 @@ public class AttendServicImp implements AttendService {
                 attendMapper.insertSelective(attend);
             } else {
                 if (today.compareTo(noon) <= 0) {
-                   return;
+                    return;
                 } else {
                     //晚上打卡话则更新其打卡记录
                     todayRecoder.setAttendEvening(today);
@@ -75,6 +82,7 @@ public class AttendServicImp implements AttendService {
 
     /**
      * 分页查询
+     *
      * @param condition
      * @return
      */
@@ -100,12 +108,32 @@ public class AttendServicImp implements AttendService {
      */
     @Override
     @Transactional
-    public void checkAttend() {
-        //查询今天都没打卡人数的
-
-        //只有早打卡的人或者晚打卡的人
-
-        //早晚打卡时间不足8小时
-        
+    public void checkAttend(Attend attend) {
+        //查询今天都没打卡人数的自动插入他们的考勤数据置为缺勤，缺勤时长设置为480分钟
+        Attend attendresult = attendMapper.selectAbsenceTotalDay(attend);
+        Attend absentAttend = new Attend();
+        absentAttend.setUserId(attend.getUserId());
+        if (attendresult == null) {
+//            该用户今天没打卡自动插入缺勤数据
+            attend.setAbsence(480);
+            attend.setAttendStatus((byte) 2);
+            attendMapper.insert(attend);
+        } else if ((attendresult.getAttendEvening() == null) || (attendresult.getAttendMoring() == null)) {
+            //只有早打卡的人或者晚打卡的人
+            attendresult.setAttendStatus((byte) 2);
+            attendMapper.updateByPrimaryKeySelective(attendresult);
+        } else {
+            //计算早晚时间差
+            Integer interval = DateUtils.getMunite(attendresult.getAttendMoring(), attendresult.getAttendEvening());
+            //判断时间差是否大于480
+            if (interval < INTERVAL) {
+                attendresult.setAbsence(interval);
+                attendresult.setAttendStatus((byte) 2);
+                attendMapper.updateByPrimaryKeySelective(attendresult);
+            } else {
+                attendresult.setAttendStatus((byte) 1);
+                attendMapper.updateByPrimaryKeySelective(attendresult);
+            }
+        }
     }
 }

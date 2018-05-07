@@ -14,7 +14,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication()
 @MapperScan(value = {"com.coding.user.dao","com.coding.attend.dao"})
-@EnableScheduling
+
 public class WorkSystemSpringbootApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(WorkSystemSpringbootApplication.class, args);
@@ -33,9 +33,5 @@ public class WorkSystemSpringbootApplication {
 		fasHttpMessageConverter.setFastJsonConfig(fastJsonConfig);
 		HttpMessageConverter<?> converter = fasHttpMessageConverter;
 		return new HttpMessageConverters(converter);
-	}
-//	@Scheduled(fixedRate=10000)
-	public void test(){
-		System.out.println("正在输出");
 	}
 }
