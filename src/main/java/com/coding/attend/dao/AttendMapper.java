@@ -3,6 +3,7 @@ package com.coding.attend.dao;
 import com.coding.attend.entity.Attend;
 import com.coding.attend.vo.QueryCondition;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface AttendMapper {
@@ -24,5 +25,9 @@ public interface AttendMapper {
 
     List<Attend> selsectAttendPage(QueryCondition condition);
 
-    Attend selectAbsenceTotalDay(Attend attend);
+    List<Long> selectAbsenceTotalDay();
+
+    void batchInsert(ArrayList<Attend> attendList);
+
+    List<Attend> selectTodayEveningAbsence();
 }
