@@ -18,8 +18,6 @@ public class AttendCheckTask {
     @ResponseBody
     @RequestMapping("te")
     public void checkAttend(){
-//        Attend attend = new Attend();
-//        attend.setUserId((long) 1);
         attendService.checkAttend();
     }
 }

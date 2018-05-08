@@ -54,7 +54,7 @@
     SELECT
     a.user_id
     FROM attend a
-    WHERE a.attend_date = CURDATE()
+    WHERE  date(a.attend_date) = curdate()
     )
 </select>
     <select id="selectTodayEveningAbsence" resultMap="BaseResultMap" >
@@ -62,7 +62,7 @@
         <include refid="Base_Column_List"/>
         FROM attend
         WHERE
-        attend_date= CURDATE()
+        date(attend_date) = curdate()
         AND attend_evening is NULL
         AND attend_status =1
         AND attend_week NOT IN (6,7)
@@ -80,12 +80,11 @@
       #{absence,jdbcType=INTEGER}, #{attendStatus,jdbcType=TINYINT})
   </insert>
     <insert id="batchInsert" parameterType="list">
-      insert into attend (id, user_id, attend_date,
-        attend_week, attend_moring, attend_evening,
-        absence, attend_status)
+      insert into attend (user_id, attend_date,
+        attend_week, absence, attend_status)
         VALUES
         <foreach collection="list" item="item" index="index" separator=",">
-            ( #{item.userId,},#{item.attendDate,},#{item.attendWeek,},#{item.absence,},#{item.attendStatus,})
+            (#{item.userId},#{item.attendDate},#{item.attendWeek},#{item.absence},#{item.attendStatus})
         </foreach>
     </insert>
     <insert id="insertSelective" parameterType="com.coding.attend.entity.Attend">

@@ -10,6 +10,8 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.shiro.util.CollectionUtils;
 import org.apache.xbean.propertyeditor.CollectionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -46,7 +48,6 @@ public class AttendServicImp implements AttendService {
     private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     @Autowired
     private AttendMapper attendMapper;
-
     /**
      * 记录打卡
      *
@@ -115,8 +116,10 @@ public class AttendServicImp implements AttendService {
 
     @Override
 //    @Transactional
+//    @Scheduled(cron = "0 9,25 15 * * ? *")
     public void checkAttend() {
-        ////查询今天都没打卡人数的自动插入他们的考勤数据置为缺勤，缺勤时长设置为480分钟
+        System.out.println("我输出了" + new Date());
+        //查询今天都没打卡人数的自动插入他们的考勤数据置为缺勤，缺勤时长设置为480分钟
         List<Long> userIdList =attendMapper.selectAbsenceTotalDay();
         if (CollectionUtils.isEmpty(userIdList)) {
             ArrayList<Attend> attendList = new ArrayList<>();
@@ -133,6 +136,7 @@ public class AttendServicImp implements AttendService {
             //批量插入
             attendMapper.batchInsert(attendList);
         }
+
         //检查晚打卡 将下班为打卡的记录设置为异常
         List<Attend> absencelist =attendMapper.selectTodayEveningAbsence();
         if (!CollectionUtils.isEmpty(absencelist)) {
@@ -143,9 +147,7 @@ public class AttendServicImp implements AttendService {
                 attendMapper.updateByPrimaryKeySelective(attend);
             }
         }
-
     }
-
 //    /**
 //     * 通过记录的数据，检测缺勤情况
 //     */
