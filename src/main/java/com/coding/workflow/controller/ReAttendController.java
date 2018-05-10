@@ -34,8 +34,6 @@ public class ReAttendController {
         retendService.signReAttend(reAttend);
         return "提交申请成功" ;
     }
-
-
     /**
      * 查询打卡记录
      * 考勤数据分页查询
@@ -47,7 +45,7 @@ public class ReAttendController {
         String[] rangeDate = condition.getRangeDate().split("/");
         condition.setStartDate(rangeDate[0]);
         condition.setEndDate(rangeDate[1]);
-        condition.setUserId(user.getId());
+        condition.setUserId(user.getUser_id());
         PageQueryBean result = retendService.listreAttend(condition);
         return  result;
     }

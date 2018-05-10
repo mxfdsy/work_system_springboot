@@ -3,6 +3,7 @@
 <mapper namespace="com.coding.user.dao.UserMapper" >
   <resultMap id="BaseResultMap" type="com.coding.user.entity.User" >
     <id column="id" property="id" jdbcType="BIGINT" />
+    <id column="user_id" property="user_id" jdbcType="BIGINT" />
     <result column="username" property="username" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="mobile" property="mobile" jdbcType="VARCHAR" />
@@ -10,7 +11,7 @@
     <result column="head_image" property="headImage" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, username, password, mobile, real_name, head_image
+    id,user_id, username, password, mobile, real_name, head_image
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 

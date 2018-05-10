@@ -48,7 +48,6 @@ public class UserServiceImpl  implements UserService{
      * @Date 2018/5/1 12:18
      * @Description 注册新用户
      */
-
     @Override
     public void NLoginUser(User user) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         user.setPassword(SecurityUtils.encrptyPassword(user.getPassword()));
