@@ -47,7 +47,7 @@ public class AttendController {
         String[] rangeDate = condition.getRangeDate().split("/");
         condition.setStartDate(rangeDate[0]);
         condition.setEndDate(rangeDate[1]);
-        condition.setUserId(user.getId());
+        condition.setUserId(user.getUser_id());
         PageQueryBean result = attendServic.listAttend(condition);
         return  result;
     }

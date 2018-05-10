@@ -109,8 +109,8 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="#">打卡记录</a></li>
-                        <li><a href="#">审批记录</a></li>
+                        <li><a href="/attend">打卡记录</a></li>
+                        <li><a href="/reAttend">审批记录</a></li>
                     </ul>
                 </li>
             </ul>

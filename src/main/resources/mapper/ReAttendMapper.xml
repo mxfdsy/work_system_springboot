@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.coding.workflow.dao.ReAttendMapper" >
+  <resultMap id="BaseResultMap" type="com.coding.workflow.entity.ReAttend" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="re_attend_date" property="reAttendDate" jdbcType="TIMESTAMP" />
+    <result column="re_attend_moring" property="reAttendMoring" jdbcType="TIME" />
+    <result column="re_attend_evening" property="reAttendEvening" jdbcType="TIME" />
+    <result column="user_currentStatus" property="userCurrentstatus" jdbcType="VARCHAR" />
+    <result column="currentProgrance" property="currentprogrance" jdbcType="VARCHAR" />
+    <result column="approveFlag" property="approveflag" jdbcType="VARCHAR" />
+    <result column="comment" property="comment" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, re_attend_date, re_attend_moring, re_attend_evening, user_currentStatus, 
+    currentProgrance, approveFlag, comment
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from re_attend
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="countByCondition" resultType="int" parameterType="java.lang.Long">
+    select
+    COUNT(0)
+    from re_attend
+    where user_id = #{userId,jdbcType=BIGINT}
+    <if test="startDate != null and endDate != null">
+      AND re_attend_date BETWEEN #{startDate} AND #{endDate}
+    </if>
+  </select>
+  <select id="selsectReAttendPage" resultMap="BaseResultMap" parameterType="java.lang.Long">
+    select
+    <include refid="Base_Column_List"/>
+    from re_attend
+    where user_id = #{userId,jdbcType=BIGINT}
+    <if test="startDate != null and endDate != null">
+      AND re_attend_date BETWEEN #{startDate} AND #{endDate}
+    </if>
+    Limit #{startRow},#{pageSize}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from re_attend
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.coding.workflow.entity.ReAttend" >
+    insert into re_attend (id, user_id, re_attend_date, 
+      re_attend_moring, re_attend_evening, user_currentStatus, 
+      currentProgrance, approveFlag, comment
+      )
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{reAttendDate,jdbcType=TIMESTAMP}, 
+      #{reAttendMoring,jdbcType=TIME}, #{reAttendEvening,jdbcType=TIME}, #{userCurrentstatus,jdbcType=VARCHAR}, 
+      #{currentprogrance,jdbcType=VARCHAR}, #{approveflag,jdbcType=VARCHAR}, #{comment,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.coding.workflow.entity.ReAttend" >
+    insert into re_attend
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="reAttendDate != null" >
+        re_attend_date,
+      </if>
+      <if test="reAttendMoring != null" >
+        re_attend_moring,
+      </if>
+      <if test="reAttendEvening != null" >
+        re_attend_evening,
+      </if>
+      <if test="userCurrentstatus != null" >
+        user_currentStatus,
+      </if>
+      <if test="currentprogrance != null" >
+        currentProgrance,
+      </if>
+      <if test="approveflag != null" >
+        approveFlag,
+      </if>
+      <if test="comment != null" >
+        comment,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="reAttendDate != null" >
+        #{reAttendDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reAttendMoring != null" >
+        #{reAttendMoring,jdbcType=TIME},
+      </if>
+      <if test="reAttendEvening != null" >
+        #{reAttendEvening,jdbcType=TIME},
+      </if>
+      <if test="userCurrentstatus != null" >
+        #{userCurrentstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="currentprogrance != null" >
+        #{currentprogrance,jdbcType=VARCHAR},
+      </if>
+      <if test="approveflag != null" >
+        #{approveflag,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null" >
+        #{comment,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.coding.workflow.entity.ReAttend" >
+    update re_attend
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="reAttendDate != null" >
+        re_attend_date = #{reAttendDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reAttendMoring != null" >
+        re_attend_moring = #{reAttendMoring,jdbcType=TIME},
+      </if>
+      <if test="reAttendEvening != null" >
+        re_attend_evening = #{reAttendEvening,jdbcType=TIME},
+      </if>
+      <if test="userCurrentstatus != null" >
+        user_currentStatus = #{userCurrentstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="currentprogrance != null" >
+        currentProgrance = #{currentprogrance,jdbcType=VARCHAR},
+      </if>
+      <if test="approveflag != null" >
+        approveFlag = #{approveflag,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null" >
+        comment = #{comment,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.coding.workflow.entity.ReAttend" >
+    update re_attend
+    set user_id = #{userId,jdbcType=BIGINT},
+      re_attend_date = #{reAttendDate,jdbcType=TIMESTAMP},
+      re_attend_moring = #{reAttendMoring,jdbcType=TIME},
+      re_attend_evening = #{reAttendEvening,jdbcType=TIME},
+      user_currentStatus = #{userCurrentstatus,jdbcType=VARCHAR},
+      currentProgrance = #{currentprogrance,jdbcType=VARCHAR},
+      approveFlag = #{approveflag,jdbcType=VARCHAR},
+      comment = #{comment,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

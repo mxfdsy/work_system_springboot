@@ -49,4 +49,8 @@ public class ReAttendController {
         PageQueryBean result = retendService.listreAttend(condition);
         return  result;
     }
+
+    /**
+     * 开始补签
+     */
 }
