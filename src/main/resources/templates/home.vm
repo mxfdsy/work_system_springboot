@@ -35,7 +35,7 @@
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"></span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg">考勤系统</span>
+            <span class="logo-lg">红岸基地</span>
         </a>
 
         <!-- Header Navbar -->
@@ -144,7 +144,7 @@
 
     <!-- Main Footer -->
     <footer class="main-footer">
-        <strong>Copyright &copy; 2016 <a href="#">考勤系统</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2018 <a href="#">红岸基地</a>.</strong> All rights reserved.
     </footer>
 
 </div>
