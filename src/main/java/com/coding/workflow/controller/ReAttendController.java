@@ -1,10 +1,10 @@
-package com.coding.attend.controller;
+package com.coding.workflow.controller;
 
-import com.coding.attend.entity.Attend;
-import com.coding.attend.service.AttendService;
 import com.coding.attend.vo.QueryCondition;
 import com.coding.commons.page.PageQueryBean;
 import com.coding.user.entity.User;
+import com.coding.workflow.entity.ReAttend;
+import com.coding.workflow.service.RetendService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,33 +14,33 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpSession;
 
 /**
- * Created by 平凡的世界 on 2018/5/3.
+ * Created by 没想法的岁月 on 2018/5/10.
  */
 @Controller
-@RequestMapping("attend")
-public class AttendController {
-
-    @Autowired
-    private AttendService attendServic;
+@RequestMapping("/reAttend")
+public class ReAttendController {
 
     @RequestMapping
-    public String toAttend() {
-        return "attend";
+    public String toReAttend(){
+        return "reAttend";
     }
 
+    @Autowired
+    private RetendService retendService;
 
-    @RequestMapping("sigin")
     @ResponseBody
-    public String signAttend(@RequestBody Attend attend) {
-        attendServic.signAttend(attend);
-        return "succ";
+    @RequestMapping("/start")
+    public String startReTtend(@RequestBody ReAttend reAttend){
+        retendService.signReAttend(reAttend);
+        return "提交申请成功" ;
     }
+
 
     /**
      * 查询打卡记录
      * 考勤数据分页查询
      */
-    @RequestMapping("/attendList")
+    @RequestMapping("/reattendList")
     @ResponseBody
     public PageQueryBean listAttend(QueryCondition condition, HttpSession session){
         User user = (User)session.getAttribute("userinfo");
@@ -48,7 +48,7 @@ public class AttendController {
         condition.setStartDate(rangeDate[0]);
         condition.setEndDate(rangeDate[1]);
         condition.setUserId(user.getId());
-        PageQueryBean result = attendServic.listAttend(condition);
+        PageQueryBean result = retendService.listreAttend(condition);
         return  result;
     }
 }

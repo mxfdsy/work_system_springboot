@@ -24,9 +24,6 @@ public class PageQueryBean {
 	/** 查询所得数据集 */
 	private List<?> items;
 
-	
-
-
 	public final Integer getStartRow() {
 		if (startRow == null)
 			startRow = (currentPage == null ? 0 : (currentPage - 1) * getPageSize()) ;
@@ -88,5 +85,4 @@ public class PageQueryBean {
 				+ startRow + ", totalPage=" + totalPage + ", items=" + items
 				+ "]";
 	}
-
 }

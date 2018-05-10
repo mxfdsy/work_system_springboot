@@ -14,7 +14,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 
 
 @SpringBootApplication()
-@MapperScan(value = {"com.coding.user.dao","com.coding.attend.dao"})
+@MapperScan(value = {"com.coding.user.dao","com.coding.attend.dao","com.coding.workflow.dao"})
 @EnableScheduling
 public class WorkSystemSpringbootApplication {
 	public static void main(String[] args) {
