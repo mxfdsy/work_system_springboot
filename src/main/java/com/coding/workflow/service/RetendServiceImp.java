@@ -40,4 +40,9 @@ public class RetendServiceImp implements RetendService {
         }
         return pageresult;
     }
+
+    @Override
+    public void updayFlag() {
+//        reAttendMapper.updateByPrimaryKeySelective()
+    }
 }

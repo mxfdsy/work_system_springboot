@@ -51,6 +51,12 @@ public class ReAttendController {
     }
 
     /**
-     * 开始补签
+     * 审核标签
      */
+    @RequestMapping("/approve")
+    @ResponseBody
+    public String review(){
+        retendService.updayFlag();
+        return "审核通过";
+    }
 }

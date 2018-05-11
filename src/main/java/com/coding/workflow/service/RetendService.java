@@ -12,4 +12,6 @@ public interface RetendService {
     void signReAttend(ReAttend reAttend);
 
     PageQueryBean listreAttend(QueryCondition condition);
+
+    void updayFlag();
 }
