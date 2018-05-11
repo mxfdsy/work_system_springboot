@@ -55,8 +55,9 @@ public class ReAttendController {
      */
     @RequestMapping("/approve")
     @ResponseBody
-    public String review(){
-        retendService.updayFlag();
+    public String review(@RequestBody ReAttend reAttend){
+        Long userId = reAttend.getUserId();
+        retendService.updayFlag(userId);
         return "审核通过";
     }
 }

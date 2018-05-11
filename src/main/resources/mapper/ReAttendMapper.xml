@@ -146,6 +146,11 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <update id="updateReAttendRecord" parameterType="com.coding.workflow.entity.ReAttend" >
+    update re_attend
+    SET user_Currentstatus = 1, currentProgrance="done",approveflag ="true"
+    where user_id = #{userId,jdbcType=BIGINT}
+  </update>
   <update id="updateByPrimaryKey" parameterType="com.coding.workflow.entity.ReAttend" >
     update re_attend
     set user_id = #{userId,jdbcType=BIGINT},

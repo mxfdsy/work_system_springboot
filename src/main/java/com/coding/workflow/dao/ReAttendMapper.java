@@ -22,4 +22,7 @@ public interface ReAttendMapper {
     int countByCondition(QueryCondition condition);
 
     List<Attend> selsectReAttendPage(QueryCondition condition);
+
+
+    void updateReAttendRecord(Long userId);
 }

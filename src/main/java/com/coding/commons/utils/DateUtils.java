@@ -8,7 +8,6 @@ import java.util.Date;
  */
 public class DateUtils {
 
-
     private static Calendar calendar = Calendar.getInstance();
     /**
      *@Author JackWang [www.coder520.com]

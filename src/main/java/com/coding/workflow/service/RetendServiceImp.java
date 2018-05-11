@@ -42,7 +42,7 @@ public class RetendServiceImp implements RetendService {
     }
 
     @Override
-    public void updayFlag() {
-//        reAttendMapper.updateByPrimaryKeySelective()
+    public void updayFlag(Long userId) {
+        reAttendMapper.updateReAttendRecord(userId);
     }
 }

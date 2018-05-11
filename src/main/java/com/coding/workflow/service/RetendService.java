@@ -13,5 +13,5 @@ public interface RetendService {
 
     PageQueryBean listreAttend(QueryCondition condition);
 
-    void updayFlag();
+    void updayFlag(Long userId);
 }
