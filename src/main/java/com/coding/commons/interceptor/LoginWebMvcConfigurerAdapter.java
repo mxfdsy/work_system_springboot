@@ -17,6 +17,6 @@ import java.util.List;
 public class LoginWebMvcConfigurerAdapter extends WebMvcConfigurerAdapter {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new SessionInterceptor()).addPathPatterns("/**");
+//        registry.addInterceptor(new SessionInterceptor()).addPathPatterns("/**").excludePathPatterns("/*/**.*");
     }
 }
