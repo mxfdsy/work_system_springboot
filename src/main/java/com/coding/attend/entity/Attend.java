@@ -2,12 +2,15 @@ package com.coding.attend.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
 
 
 public class Attend implements Serializable {
+
     private Long id;
+
 
     private Long userId;
 
