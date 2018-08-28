@@ -45,7 +45,7 @@ public class ReAttendController {
         String[] rangeDate = condition.getRangeDate().split("/");
         condition.setStartDate(rangeDate[0]);
         condition.setEndDate(rangeDate[1]);
-        condition.setUserId(user.getUser_id());
+        condition.setUserId("1");
         PageQueryBean result = retendService.listreAttend(condition);
         return  result;
     }

@@ -7,7 +7,7 @@ import com.coding.commons.page.PageQueryBean;
  */
 public class QueryCondition extends PageQueryBean {
 
-    private Long userId;
+    private String userId;
 
     private String startDate;
 
@@ -33,11 +33,11 @@ public class QueryCondition extends PageQueryBean {
         this.rangeDate = rangeDate;
     }
 
-    public Long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

@@ -31,10 +31,7 @@ public class LoginUserDTO implements Serializable {
     
     @JSONField(name = "gender")
     private String gender;
-    
-    @JSONField(name = "role_info")
-    private List<LoginRoleDTO> roleInfo;
-    
+
     @JSONField(name = "permission_info")
     private Set<String> permissionInfo;
 
@@ -114,13 +111,6 @@ public class LoginUserDTO implements Serializable {
         this.gender = gender;
     }
 
-    public List<LoginRoleDTO> getRoleInfo() {
-        return roleInfo;
-    }
-
-    public void setRoleInfo(List<LoginRoleDTO> roleInfo) {
-        this.roleInfo = roleInfo;
-    }
 
     public Set<String> getPermissionInfo() {
         return permissionInfo;

@@ -11,7 +11,7 @@
     <result column="head_image" property="headImage" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id,user_id, username, password, mobile, real_name, head_image
+    id, username, password
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 

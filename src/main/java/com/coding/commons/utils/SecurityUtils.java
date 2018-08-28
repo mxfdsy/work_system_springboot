@@ -37,8 +37,8 @@ public class SecurityUtils {
      * @throws NoSuchAlgorithmException
      */
     public static boolean cheackPassword(String inputPwd, String dbPwd) throws UnsupportedEncodingException, NoSuchAlgorithmException {
-        String result = encrptyPassword(inputPwd);
-        if (result.equals(dbPwd)) {
+//        String result = encrptyPassword(inputPwd);
+        if (inputPwd.equals(dbPwd)) {
             return true;
         } else {
             return  false;
